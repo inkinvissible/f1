@@ -11,20 +11,22 @@ fetch('https://f1-inkinvissibles-projects.vercel.app/api/proxy')
         // Llenar tabla de constructores
         constructors.forEach(entry => {
             const row = constructorsTable.insertRow();
+            const points = entry.stats.find(stat => stat.name === "points");
             row.innerHTML = `
-                <td>${entry.team.displayName}</td>
-                <td>${entry.stats.find(stat => stat.name === 'rank').displayValue}</td>
-                <td>${entry.stats.find(stat => stat.name === 'points').displayValue}</td>
+                <td>${entry.team.name}</td>
+                <td>${entry.stats[0].value}</td>
+                <td>${points ? points.displayValue : '0'}</td>
             `;
         });
 
         // Llenar tabla de pilotos
         drivers.forEach(entry => {
             const row = driversTable.insertRow();
+            const championshipPoints = entry.stats.find(stat => stat.name === "championshipPts");
             row.innerHTML = `
                 <td>${entry.athlete.displayName}</td>
-                <td>${entry.stats.find(stat => stat.name === 'rank').displayValue}</td>
-                <td>${entry.stats.find(stat => stat.name === 'championshipPts').displayValue}</td>
+                <td>${entry.stats[0].value}</td>
+                <td>${championshipPoints ? championshipPoints.displayValue : '0'}</td>
             `;
         });
     })
