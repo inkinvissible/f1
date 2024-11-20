@@ -3,13 +3,12 @@ export default async function handler(req, res) {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-    if (req.method === 'OPTIONS') {
-        // Manejo de preflight
-        res.status(200).end();
-        return;
-    }
+	const baseUrl = 'https://f1-motorsport-data.p.rapidapi.com';
+    const endpoints = [
+        '/standings-constructors?year=2025',
+        '/standings-drivers?year=2025',
+    ];
 
-    const url = 'https://f1-motorsport-data.p.rapidapi.com/schedule?year=2024';
     const options = {
         method: 'GET',
         headers: {
@@ -19,11 +18,16 @@ export default async function handler(req, res) {
     };
 
     try {
-        const response = await fetch(url, options);
-        const data = await response.json();
-        res.status(200).json(data);
+        const responses = await Promise.all(
+            endpoints.map(endpoint => fetch(`${baseUrl}${endpoint}`, options))
+        );
+
+        const [constructors, drivers] = await Promise.all(responses.map(res => res.json()));
+
+        res.status(200).json({ constructors, drivers });
     } catch (error) {
         console.error('Error interno:', error);
         res.status(500).json({ error: 'Error interno del servidor' });
     }
+    
 }
