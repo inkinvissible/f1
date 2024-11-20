@@ -5,8 +5,8 @@ export default async function handler(req, res) {
 
 	const baseUrl = 'https://f1-motorsport-data.p.rapidapi.com';
     const endpoints = [
-        '/standings-constructors?year=2025',
-        '/standings-drivers?year=2025',
+        '/standings-constructors?year=2024',
+        '/standings-drivers?year=2024',
     ];
 
     const options = {
