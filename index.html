@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,25 +8,29 @@
     <title>Campeonato F1</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>Constructor Standings</h1>
-    <table id="constructorsTable" border="1">
+    <h1>Campeonato de Constructores</h1>
+    <div id="constructorsLoader" class="loader"></div>
+    <table id="constructorsTable" style="display: none;">
         <tr>
-            <th>Team</th>
-            <th>Rank</th>
-            <th>Points</th>
+            <th>Equipo</th>
+            <th>Ranking</th>
+            <th>Puntos</th>
         </tr>
     </table>
 
-    <h1>Driver Standings</h1>
-    <table id="driversTable" border="1">
+    <h1>Campeonato de Pilotos</h1>
+    <div id="driversLoader" class="loader"></div>
+    <table id="driversTable" style="display: none;">
         <tr>
-            <th>Driver</th>
-            <th>Rank</th>
-            <th>Points</th>
+            <th>Piloto</th>
+            <th>Ranking</th>
+            <th>Puntos</th>
         </tr>
     </table>
 
     <script src="script.js"></script>
 </body>
+
 </html>
