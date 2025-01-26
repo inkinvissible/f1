@@ -1,8 +1,8 @@
 fetch('https://f1-inkinvissibles-projects.vercel.app/api/proxy')
     .then(response => response.json())
     .then(data => {
-        const constructors = data.constructors.MRData.StandingsTable.StandingsLists.ConstructorStandings;
-        const drivers = data.drivers.MRData.StandingsTable.StandingsLists.DriverStandings;
+        const constructors = data.constructors.MRData.StandingsTable.StandingsLists[0].ConstructorStandings[0];
+        const drivers = data.drivers.MRData.StandingsTable.StandingsLists[0].DriverStandings[0];
 
         console.log("Contructors ", constructors)
         console.log("Drivers ", drivers)
