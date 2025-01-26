@@ -5,8 +5,8 @@ export default async function handler(req, res) {
 
 	const baseUrl = 'http://api.jolpi.ca/ergast/f1/2025';
     const endpoints = [
-        '/constructors/',
-        '/drivers/',
+        '/constructorstandings.json',
+        '/driverstandings.json',
     ];
 
     const options = {
