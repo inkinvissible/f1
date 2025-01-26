@@ -3,18 +3,17 @@ export default async function handler(req, res) {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-	const baseUrl = 'https://f1-motorsport-data.p.rapidapi.com';
+	const baseUrl = 'http://api.jolpi.ca/ergast/f1/2025';
     const endpoints = [
-        '/standings-controllers?year=2025',
-        '/standings-drivers?year=2025',
+        '/constructors/',
+        '/drivers/',
     ];
 
     const options = {
         method: 'GET',
         headers: {
-            'x-rapidapi-key': '4af36d482fmshbeb403eefe984abp11731ejsnade543db6b29',
-            'x-rapidapi-host': 'f1-motorsport-data.p.rapidapi.com'
-        }
+            'Content-Type': 'application/json',
+        },
     };
 
     try {
