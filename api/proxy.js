@@ -3,7 +3,7 @@ export default async function handler(req, res) {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-	const baseUrl = 'http://api.jolpi.ca/ergast/f1/2025';
+	const baseUrl = 'http://api.jolpi.ca/ergast/f1/2024';
     const endpoints = [
         '/constructorstandings.json',
         '/driverstandings.json',
