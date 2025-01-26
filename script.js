@@ -4,6 +4,9 @@ fetch('https://f1-inkinvissibles-projects.vercel.app/api/proxy')
         const constructors = data.constructors.MRData.StandingsTable.StandingsLists.ConstructorStandings;
         const drivers = data.drivers.MRData.StandingsTable.StandingsLists.DriverStandings;
 
+        console.log("Contructors ", constructors)
+        console.log("Drivers ", drivers)
+        
         // Ocultar loaders y mostrar tablas
         document.getElementById('constructorsLoader').style.display = 'none';
         document.getElementById('driversLoader').style.display = 'none';
